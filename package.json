@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@api-platform/admin": "^3.4.3",
     "@headlessui/react": "^1.7.4",
     "@heroicons/react": "^2.0.13",
     "axios": "^1.2.0",

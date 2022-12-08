@@ -74,7 +74,7 @@ export const UserProvider = ({ children }) => {
         hasAuthenticated,
         tokenIsValid,
         setUserAuth,
-        handleCount,
+        handleCount,  
         count,
         setCount,
         token,

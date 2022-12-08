@@ -4,8 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "./context/auth";
 
 function Navbar() {
-  const {logout, user,count, handleCount,token,setToken } = useContext(UserContext);
-  setToken(window.localStorage.getItem('login'))
+  const {logout, user,count, handleCount, } = useContext(UserContext);
+  // setToken(window.localStorage.getItem('login'))
+  const token = window.localStorage.getItem('login')
   const navigate = useNavigate()
   return (
     <nav className="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
