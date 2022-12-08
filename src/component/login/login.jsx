@@ -5,7 +5,7 @@ import { UserContext } from "../context/auth";
 
 function Login() {
 
-  const { user,setUserAuth,handleCount, login,setToken,token,logout, hasAuthenticated, tokenIsValid } =
+  const { user,setUserAuth,handleCount,logout,login, hasAuthenticated, tokenIsValid } =
     useContext(UserContext);
 
   const [users, setUser] = useState({
@@ -30,7 +30,23 @@ function Login() {
     
   }
 
+  // Login updates the user data with a name parameter
+  // const url = `http://127.0.0.1:8000/api/login_check`;
+
+  // function loginAuth(username, password) {
+   
+  //     axios.post(url, { username: username, password: password })
+  //     .then((response) => response.data.token)
+  //     .then((token) => {
+  //       setItem("login",token)
+  //       setUserAuth(true)
+  //     }
+  //     )
+
+  // }
+
  function getAuth(){
+  const token = window.localStorage.getItem('login')
   const decode= jwtDecode(token)
    console.log(decode)
  }

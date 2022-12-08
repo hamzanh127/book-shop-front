@@ -4,13 +4,14 @@ import { UserContext } from "./context/auth";
 import { GetDataByUser } from "./hooks/query";
 
 function ListAdmin() {
-  const { logout, user, count, handleCount, token, setToken } =
+  const { logout, user, count, handleCount } =
     useContext(UserContext);
+    const token = window.localStorage.getItem('login')
 
   const { data, isLoading, isError } = GetDataByUser("books", jwtDecode(token).username);
   console.log(data)
   
-  setToken(window.localStorage.getItem('login'))
+
 
   return (
     <div className="overflow-x-auto relative shadow-md sm:rounded-lg mt-20">
@@ -42,26 +43,28 @@ function ListAdmin() {
         ? "Error!"
         : data
         ? data["hydra:member"].map((book) => (
-            
-         
-
-      
-          <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+          <tr key={book.id} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
             <th
               scope="row"
               className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
             >
-              Apple MacBook Pro 17"
+             {book.id}
             </th>
-            <td className="py-4 px-6">Sliver</td>
-            <td className="py-4 px-6">Laptop</td>
-            <td className="py-4 px-6">$2999</td>
+            <td className="py-4 px-6">{book.title}</td>
+            <td className="py-4 px-6">{book.description}</td>
+            <td className="py-4 px-6">{book.genre}</td>
             <td className="py-4 px-6">
+              <a
+                href="#"
+                className="font-medium mr-3 text-blue-600 dark:text-blue-500 hover:underline"
+              >
+                Edit
+              </a>
               <a
                 href="#"
                 className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
               >
-                Edit
+                Delete
               </a>
             </td>
           </tr>
